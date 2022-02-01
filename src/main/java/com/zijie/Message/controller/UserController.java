@@ -1,6 +1,7 @@
 package com.zijie.Message.controller;
 
 import com.zijie.Message.exception.MessageServiceException;
+import com.zijie.Message.request.LoginUserRequest;
 import com.zijie.Message.request.RegisterUserRequest;
 import com.zijie.Message.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,10 @@ public class UserController {
     @PostMapping("/register")
     public void register(@RequestBody RegisterUserRequest registerUserRequest) throws MessageServiceException {
         this.userService.register(registerUserRequest);
+    }
+
+    @PostMapping("/login")
+    public void login(@RequestBody LoginUserRequest loginUserRequest) throws MessageServiceException {
+        this.userService.login(loginUserRequest);
     }
 }
